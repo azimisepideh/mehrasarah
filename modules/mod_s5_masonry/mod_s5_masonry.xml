@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="3.0"
+	client="site"
+	method="upgrade">
+	<name>S5 Masonry</name>
+	<author>Shape5</author>
+	<creationDate>January 2015</creationDate>
+	<copyright>Copyright (C) 2005 - 2014 Open Source Matters. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>contact@shape5.com</authorEmail>
+	<authorUrl>www.shape5.com</authorUrl>
+	<version>2.5.0</version>
+	<description>MOD_S5_MASONRY_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_s5_masonry">mod_s5_masonry.php</filename>
+		<folder>tmpl</folder>
+		<folder>js</folder>
+		<folder>css</folder>
+		<folder>images</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_s5_masonry.xml</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB.mod_s5_masonry.ini</language>
+		<language tag="en-GB">language/en-GB.mod_s5_masonry.sys.ini</language>
+	</languages>
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_S5_MASONRYFLASH" />
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+			
+						
+				<field
+					name="categoriesfend"
+					type="radio"
+					default="0"
+					label="MOD_S5_MASONRY_FIELD_SHCATEGORIES_LABEL"
+					description="MOD_S5_MASONRY_FIELD_SHCATEGORIES_DESC">
+					<option
+						value="1">JYES</option>
+					<option
+						value="0">JNO</option>
+				</field>
+			
+			
+				<field
+					name="catid"
+					type="category"
+					extension="com_content"
+					multiple="true"
+					default=""
+					size="10"
+					label="JCATEGORY"
+					description="MOD_S5_MASONRY_FIELD_CATEGORY_DESC" >
+					<option value="">JOPTION_ALL_CATEGORIES</option>
+				</field>
+
+				<field
+					name="image"
+					type="radio"
+					default="0"
+					label="MOD_S5_MASONRY_FIELD_IMAGES_LABEL"
+					description="MOD_S5_MASONRY_FIELD_IMAGES_DESC">
+					<option
+						value="1">JYES</option>
+					<option
+						value="0">JNO</option>
+				</field>
+
+				<field
+					name="item_title"
+					type="radio"
+					default="0"
+					label="MOD_S5_MASONRY_FIELD_TITLE_LABEL"
+					description="MOD_S5_MASONRY_FIELD_TITLE_DESC">
+					<option
+						value="1">JYES</option>
+					<option
+						value="0">JNO</option>
+				</field>
+
+				<field
+					name="link_titles"
+					type="list"
+					label="MOD_S5_MASONRY_FIELD_LINKTITLE_LABEL"
+					description="MOD_S5_MASONRY_FIELD_LINKTITLE_DESC">
+					<option
+						value="">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">JNO</option>
+					<option
+						value="1">JYES</option>
+				</field>
+
+				<field
+					name="item_heading"
+					type="list"
+					default="h4"
+					label="MOD_S5_MASONRY_TITLE_HEADING"
+					description="MOD_S5_MASONRY_TITLE_HEADING_DESCRIPTION">
+					<option
+						value="h1">JH1</option>
+					<option
+						value="h2">JH2</option>
+					<option
+						value="h3">JH3</option>
+					<option
+						value="h4">JH4</option>
+					<option
+						value="h5">JH5</option>
+				</field>
+
+				<!--<field
+					name="showLastSeparator"
+					type="radio"
+					default="1"
+					label="MOD_S5_MASONRY_FIELD_SEPARATOR_LABEL"
+					description="MOD_S5_MASONRY_FIELD_SEPARATOR_DESC">
+					<option
+						value="1">JYES</option>
+					<option
+						value="0">JNO</option>
+				</field>
+				-->
+				
+				<field
+					name="introtext"
+					type="radio"
+					default="0"
+					label="MOD_S5_MASONRY_FIELD_INTROTEXT_LABEL"
+					description="MOD_S5_MASONRY_FIELD_INTROTEXT_DESC">
+					<option
+						value="1">JYES</option>
+					<option
+						value="0">JNO</option>
+				</field>
+
+				<field
+					name="readmore"
+					type="radio"
+					default="0"
+					label="MOD_S5_MASONRY_FIELD_READMORE_LABEL"
+					description="MOD_S5_MASONRY_FIELD_READMORE_DESC">
+					<option
+						value="0">JHIDE</option>
+					<option
+						value="1">JSHOW</option>
+				</field>
+
+				
+				<field
+					name="showhits"
+					type="radio"
+					default="0"					
+					label="MOD_S5_MASONRY_FIELD_HITS_LABEL"
+					description="MOD_S5_MASONRY_FIELD_HITS_DESC">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				
+				<field
+					name="count"
+					type="text"
+					default="5"
+					label="MOD_S5_MASONRY_FIELD_ITEMS_LABEL"
+					description="MOD_S5_MASONRY_FIELD_ITEMS_DESC" />
+
+
+				<field
+					name="load_more_articles"
+					type="text"
+					default="5"
+					label="MOD_S5_MASONRY_FIELD_LOAD_MORE_ARTICLE_LABEL"
+					description="MOD_S5_MASONRY_FIELD_LOAD_MORE_ARTICLE_DESC" />
+				<field
+					name="showhide"
+					type="list"
+					default="0"
+					label="MOD_S5_MASONRY_FIELD_SHOW_HIDE_LABEL"
+					description="MOD_S5_MASONRY_FIELD_SHOW_HIDE_DESC">
+					<option value="0">MOD_S5_MASONRY_FIELD_NONE</option>
+					<option value="1">MOD_S5_MASONRY_FIELD_LOADMORE</option>
+					<option value="2">MOD_S5_MASONRY_FIELD_SCROLL</option>
+				</field>
+
+				<field
+					name="ordering"
+					type="list"
+					default="a.publish_up"
+					label="MOD_S5_MASONRY_FIELD_ORDERING_LABEL"
+					description="MOD_S5_MASONRY_FIELD_ORDERING_DESC">
+					<option
+						value="a.publish_up">MOD_S5_MASONRY_FIELD_ORDERING_PUBLISHED_DATE</option>
+					<option
+						value="a.created">MOD_S5_MASONRY_FIELD_ORDERING_CREATED_DATE</option>
+					<option
+						value="a.ordering">MOD_S5_MASONRY_FIELD_ORDERING_ORDERING</option>
+					<option
+						value="rand()">MOD_S5_MASONRY_FIELD_ORDERING_RANDOM</option>
+				</field>
+
+			</fieldset>
+
+			<fieldset
+				name="advanced">
+
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option
+						value="itemid"></option>
+				</field>
+
+			</fieldset>
+		</fields>
+	</config>
+</extension>

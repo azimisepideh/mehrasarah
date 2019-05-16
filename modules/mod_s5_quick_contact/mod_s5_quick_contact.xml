@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<extension type="module" version="2.0.0" method="upgrade" client="site">	
+	<name>S5 Quick Contact</name>	
+	<author>Shape5.com</author>	
+	<creationDate>February 2015</creationDate>	
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>	
+	<authorEmail>contact@shape5.com</authorEmail>	
+	<authorUrl>www.shape5.com</authorUrl>	
+	<version>4.2.2</version>	
+	<description>This module will show a customizable quick contact form on your site.</description>
+	<files>
+		<filename module="mod_s5_quick_contact">mod_s5_quick_contact.php</filename>
+		<folder>tmpl</folder>
+		<folder>captcha</folder>
+		<folder>s5_quick_contact</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field type="spacer" name="spacer_basic_instr" label="&lt;span style=&quot;width:474px;display:block;font-weight:bold&quot;&gt;Mail is sent using the default Joomla mail functions. If mail is not being received check your mail settings under the Joomla Global Configurations screen. Most servers require that you enable SMTP authentication.&lt;/span&gt;" />
+				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="A suffix to be applied to the css class of the module (table.moduletable), this allows individual module styling" />	
+				<field name="borderbox" type="list" default="no" label="Use Border Box?" description="Using css border-box is a way to let the fields be set independent of any inside padding. By default the width of a field is the width plus the inner padding, so the width is often less than 90%. Enabling this feature will cause the fields to ignore the inner padding for more accurate widths.">	
+					<option value="yes">Yes</option>				
+					<option value="no">No</option>				
+				</field>	
+				<field name="width" type="text" default="86%" label="Box Width (Can be px, % or type 'auto')" description="Width of all text boxes." />				
+				<field name="height" type="text" default="55px" label="Textarea(s) Height (Can be px, % or type 'auto')" description="Height for textareas." />	
+				<field name="inputheight" type="text" default="auto" label="Input(s) Height (Can be px, % or type 'auto')" description="Height for input fields." />	
+				<field name="selectheight" type="text" default="auto" label="Select(s) Height (Can be px, % or type 'auto')" description="Height for select fields." />
+				<field name="selectwidth" type="text" default="100%" label="Select(s) Width (Can be px, % or type 'auto')" description="Width for select fields." />
+				<field name="padding" type="text" default="12px" label="Field Padding (Can be px, % or type 'auto')" />				
+				<field name="margin" type="text" default="" label="Field Margin (Can be px, % or type 'auto')" />
+				<field name="adminemail" type="text" default="" label="Emails Should Be Sent To" description="Enter any admin email." />				
+				<field 	name="emailsender" type="list" default="server" label="Email Sender" description="When the email is sent the From email and name can either be the default ones of your server's Joomla configuration, or they can be from the user that is submitting the data. If your mail is not going through be sure to check your settings in the Joomla global configuration, most servers require SMTP authentication.">	
+					<option value="server">Server</option>				
+					<option value="user">User Info</option>				
+				</field>	
+				<field 	name="buttontype" type="list" default="button" label="Button Type" description="The submit button can either be a standard html button or an html button stylized to look like a button. Typically this button should be set to 'button', but older templates and third party templates may work better with the 'input' type.">					
+					<option value="button">Button</option>				
+					<option value="input">Input</option>				
+				</field>					
+				<field type="spacer" name="spacer_basic0" label="&lt;span style=&quot;width:474px;display:block;font-weight:bold&quot;&gt;Name, and Email are required fields:&lt;/span&gt;" />
+				<field name="nametext" type="text" default="Name..." label="Name Field Text" />
+				<field name="emailtext" type="text" default="Email..." label="Email Field Text" />
+				<field type="spacer" name="spacer_basic1" label="&lt;span style=&quot;width:474px;display:block;font-weight:bold&quot;&gt;Below you can let the user enter their own subject or you can define a uniform subject for all emails:&lt;/span&gt;" />
+				<field 	name="subjecttype" type="list" default="user" label="Subject Type">				
+					<option value="user">User Defined</option>					
+					<option value="predefined">Predefined</option>								
+				</field>	
+				<field name="subjecttext" type="text" default="Subject..." label="Subject Field Text" description="If the setting above is set to User Defined, this is the text that will show by default in the inputbox until the user changes it. If it is set to Predefined, the inputbox will not show on the site and this will become the default subject used with all emails. The Subject Prefix field, defined under the Messages and Text section, will always show as the first part of the subject with both choices." />				
+				<field type="spacer" name="spacer_basic2" label="&lt;span style=&quot;width:474px;display:block;font-weight:bold&quot;&gt;Optional fields you can configure as needed. If you choose to set a field to a 'select' field, enter each of your select options in the associated text field separated by commas. The first item in the list will be your default value, you should use something generic like 'Please Select', and then your actual values following that.&lt;/span&gt;" />				
+				<field 	name="field1type" type="list" default="1" label="Field 1 Type">				
+					<option value="1">Disabled</option>					
+					<option value="text">Text</option>					
+					<option value="text_required">Text - Required</option>					
+					<option value="textarea">Textarea</option>					
+					<option value="textarea_required">Textarea - Required</option>					
+					<option value="date">Date</option>					
+					<option value="date_required">Date - Required</option>		
+					<option value="select">Select</option>					
+					<option value="select_required">Select - Required</option>						
+				</field>				
+				<field name="field1text" type="text" default="Field 1..." label="Field 1 Text" />				
+				<field 	name="field2type" type="list" default="1" label="Field 2 Type">					
+					<option value="1">Disabled</option>					
+					<option value="text">Text</option>					
+					<option value="text_required">Text - Required</option>					
+					<option value="textarea">Textarea</option>					
+					<option value="textarea_required">Textarea - Required</option>					
+					<option value="date">Date</option>					
+					<option value="date_required">Date - Required</option>	
+					<option value="select">Select</option>					
+					<option value="select_required">Select - Required</option>	
+				</field>				
+				<field name="field2text" type="text" default="Field 2..." label="Field 2 Text" />				
+				<field 	name="field3type" type="list" default="1" label="Field 3 Type">					
+					<option value="1">Disabled</option>					
+					<option value="text">Text</option>					
+					<option value="text_required">Text - Required</option>					
+					<option value="textarea">Textarea</option>					
+					<option value="textarea_required">Textarea - Required</option>					
+					<option value="date">Date</option>					
+					<option value="date_required">Date - Required</option>		
+					<option value="select">Select</option>					
+					<option value="select_required">Select - Required</option>	
+				</field>				
+				<field name="field3text" type="text" default="Field 3..." label="Field 3 Text" />				
+				<field 	name="field4type" type="list" default="1" label="Field 4 Type">					
+					<option value="1">Disabled</option>					
+					<option value="text">Text</option>					
+					<option value="text_required">Text - Required</option>					
+					<option value="textarea">Textarea</option>					
+					<option value="textarea_required">Textarea - Required</option>					
+					<option value="date">Date</option>					
+					<option value="date_required">Date - Required</option>	
+					<option value="select">Select</option>					
+					<option value="select_required">Select - Required</option>	
+				</field>				
+				<field name="field4text" type="text" default="Field 4..." label="Field 4 Text" />				
+				<field 	name="field5type" type="list" default="1" label="Field 5 Type">					
+					<option value="1">Disabled</option>					
+					<option value="text">Text</option>					
+					<option value="text_required">Text - Required</option>					
+					<option value="textarea">Textarea</option>					
+					<option value="textarea_required">Textarea - Required</option>					
+					<option value="date">Date</option>					
+					<option value="date_required">Date - Required</option>	
+					<option value="select">Select</option>					
+					<option value="select_required">Select - Required</option>	
+				</field>				
+				<field name="field5text" type="text" default="Field 5..." label="Field 5 Text" />				
+				<field 	name="field6type" type="list" default="1" label="Field 6 Type">					
+					<option value="1">Disabled</option>					
+					<option value="text">Text</option>					
+					<option value="text_required">Text - Required</option>					
+					<option value="textarea">Textarea</option>					
+					<option value="textarea_required">Textarea - Required</option>					
+					<option value="date">Date</option>					
+					<option value="date_required">Date - Required</option>	
+					<option value="select">Select</option>					
+					<option value="select_required">Select - Required</option>	
+				</field>				
+				<field name="field6text" type="text" default="Field 6..." label="Field 6 Text" />				
+				<field 	name="field7type" type="list" default="1" label="Field 7 Type">					
+					<option value="1">Disabled</option>					
+					<option value="text">Text</option>					
+					<option value="text_required">Text - Required</option>					
+					<option value="textarea">Textarea</option>					
+					<option value="textarea_required">Textarea - Required</option>					
+					<option value="date">Date</option>					
+					<option value="date_required">Date - Required</option>			
+					<option value="select">Select</option>					
+					<option value="select_required">Select - Required</option>	
+					</field>				
+				<field name="field7text" type="text" default="Field 7..." label="Field 7 Text" />				
+				<field 	name="field8type" type="list" default="1" label="Field 8 Type">					
+					<option value="1">Disabled</option>					
+					<option value="text">Text</option>					
+					<option value="text_required">Text - Required</option>					
+					<option value="textarea">Textarea</option>					
+					<option value="textarea_required">Textarea - Required</option>					
+					<option value="date">Date</option>					
+					<option value="date_required">Date - Required</option>		
+					<option value="select">Select</option>					
+					<option value="select_required">Select - Required</option>	
+				</field>				
+				<field name="field8text" type="text" default="Field 8..." label="Field 8 Text" />				
+				<field 	name="field9type" type="list" default="1" label="Field 9 Type">					
+					<option value="1">Disabled</option>					
+					<option value="text">Text</option>					
+					<option value="text_required">Text - Required</option>					
+					<option value="textarea">Textarea</option>					
+					<option value="textarea_required">Textarea - Required</option>					
+					<option value="date">Date</option>					
+					<option value="date_required">Date - Required</option>			
+					<option value="select">Select</option>					
+					<option value="select_required">Select - Required</option>	
+				</field>				
+				<field name="field9text" type="text" default="Field 9..." label="Field 9 Text" />				
+				<field 	name="field10type" type="list" default="1" label="Field 10 Type">					
+					<option value="1">Disabled</option>					
+					<option value="text">Text</option>					
+					<option value="text_required">Text - Required</option>					
+					<option value="textarea">Textarea</option>					
+					<option value="textarea_required">Textarea - Required</option>					
+					<option value="date">Date</option>					
+					<option value="date_required">Date - Required</option>		
+					<option value="select">Select</option>					
+					<option value="select_required">Select - Required</option>	
+				</field>				
+				<field name="field10text" type="text" default="Field 10..." label="Field 10 Text" />
+			</fieldset>			
+			<fieldset name="spam_protection" label="Spam Protection">				
+				<field 	name="captcha" type="list" default="1" label="Use Captcha?">					
+					<option value="0">No</option>					
+					<option value="1">Yes</option>				
+				</field>				
+				<field name="spamtext" type="text" default="Enter The Code..." label="Captcha Text" />				
+				<field name="captcha_error" type="textarea" default="The captcha text entered was incorrect - Please try again." label="Message displayed when the captcha field is entered incorrectly." />				
+				<field type="spacer" name="spacer_spam" label="&lt;span style=&quot;width:474px;display:block;font-weight:bold&quot;&gt;Emails containing the following words will not be allowed to submit.&lt;/span&gt;" />		<field name="ex1" type="text" default="" label="Exclusion 1" />				
+				<field name="ex2" type="text" default="" label="Exclusion 2" />				
+				<field name="ex3" type="text" default="" label="Exclusion 3" />				
+				<field name="ex4" type="text" default="" label="Exclusion 4" />				
+				<field name="ex5" type="text" default="" label="Exclusion 5" />				
+				<field name="ex6" type="text" default="" label="Exclusion 6" />				
+				<field name="ex7" type="text" default="" label="Exclusion 7" />				
+				<field name="ex8" type="text" default="" label="Exclusion 8" />				
+				<field name="ex9" type="text" default="" label="Exclusion 9" />				
+				<field name="ex10" type="text" default="" label="Exclusion 10" />				
+				<field name="ex11" type="text" default="" label="Exclusion 11" />				
+				<field name="ex12" type="text" default="" label="Exclusion 12" />				
+				<field name="ex13" type="text" default="" label="Exclusion 13" />				
+				<field name="ex14" type="text" default="" label="Exclusion 14" />				
+				<field name="ex15" type="text" default="" label="Exclusion 15" />				
+				<field name="ex16" type="text" default="" label="Exclusion 16" />				
+				<field name="ex17" type="text" default="" label="Exclusion 17" />				
+				<field name="ex18" type="text" default="" label="Exclusion 18" />				
+				<field name="ex19" type="text" default="" label="Exclusion 19" />				
+				<field name="ex20" type="text" default="" label="Exclusion 20" />				
+				<field name="ex21" type="text" default="" label="Exclusion 21" />				
+				<field name="ex22" type="text" default="" label="Exclusion 22" />				
+				<field name="ex23" type="text" default="" label="Exclusion 23" />				
+				<field name="ex24" type="text" default="" label="Exclusion 24" />				
+				<field name="ex25" type="text" default="" label="Exclusion 25" />				
+				<field name="ex26" type="text" default="" label="Exclusion 26" />				
+				<field name="ex27" type="text" default="" label="Exclusion 27" />				
+				<field name="ex28" type="text" default="" label="Exclusion 28" />				
+				<field name="ex29" type="text" default="" label="Exclusion 29" />				
+				<field name="ex30" type="text" default="" label="Exclusion 30" />			
+			</fieldset>			
+			<fieldset name="messages" label="Messages and Text">				
+				<field name="subjectprefix" type="text" default="Website Submission - " label="Subject Prefix" description="Enter any prefix for incoming messages. This will show on the actual email received." />				<field name="sendtext" type="text" default="Send Message" label="Send Button Text" />				
+				<field name="thankyou" type="textarea" default="Your email is now being submitted - Thank you!" label="Message displayed when submitting a successful email." />				
+				<field name="emailerror" type="textarea" default="Your email address is not valid, please check again - Thank you!" label="Message displayed when submitting an incorrectly formatted email address." />			<field name="notcomplete" type="textarea" default="The fields indicated in red are required, please complete the form - Thank you!" label="Message displayed when a required field is not filled out. The required field will be marked by a red background." />				
+				<field filter="raw" name="pretext" type="textarea" cols="40" rows="5" default="" label="Pre-Text" description="Enter any pre-text message." />				
+				<field filter="raw" name="posttext" type="textarea" cols="40" rows="5" default="" label="Post-Text" description="Enter any post-text message." />			
+			</fieldset>
+		</fields>
+	</config>
+</extension>

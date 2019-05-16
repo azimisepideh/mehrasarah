@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<extension type="module" version="1.6.0" method="upgrade" client="site">
+	<name>S5 Contact Popup</name>
+	<author>Shape5.com</author>
+	<creationDate>July 2014</creationDate>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>contact@shape5..com</authorEmail>
+	<authorUrl>www.shape5.com</authorUrl>
+	<version>1.5.0</version>
+	<description>Shape 5 Contact Popup Module</description>
+	<files>
+		<filename module="mod_s5_contact_popup">mod_s5_contact_popup.php</filename>
+		<folder>tmpl</folder>
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>images</folder>
+		<folder>language</folder>
+	</files>
+	<languages>
+        <language tag="en-GB">language/en-GB.mod_s5_contact_popup.ini</language>
+    </languages>
+	<config>
+		<fields name="params">
+		<fieldset name="basic">
+		<field name="moduleclass_sfx" type="text" default="" label="S5_CONTACTPOP_MODCLASS_LABEL" description="S5_CONTACTPOP_MODCLASS_DESC" />
+		<field name="cp_pretext" type="textarea" cols="40" rows="5" default="" label="S5_CONTACTPOP_PRETEXT_LABEL" description="S5_CONTACTPOP_PRETEXT_DESC" />
+		<field name="cp_haveaquestion" type="text" default="" label="S5_CONTACTPOP_HAVEQUESTION_LABEL" description="S5_CONTACTPOP_HAVEQUESTION_DESC" />
+		<field name="cp_nametext" type="text" default="" label="S5_CONTACTPOP_NAME_LABEL" />
+		<field name="cp_emailtext" type="text" default="" label="S5_CONTACTPOP_EMAIL_LABEL" />
+		<field name="cp_bodytext" type="text" default="" label="S5_CONTACTPOP_MESSAGE_LABEL" />
+		<field name="cp_sendmessagebutton" type="text" default="" label="S5_CONTACTPOP_SEND_LABEL" />
+		<field name="cp_googlepublickey" type="text" default="" label="S5_CONTACTPOP_GPUBLIC_LABEL" description="S5_CONTACTPOP_GPUBLIC_DESC" />
+		<field name="cp_googleprivatekey" type="text" default="" label="S5_CONTACTPOP_GPRIVATE_LABEL" description="S5_CONTACTPOP_GPRIVATE_DESC" />
+		<field 	name="cp_gcaptcha" type="list" default="yes" label="S5_CONTACTPOP_GRECAPTCHA_LABEL" description="S5_CONTACTPOP_GRECAPTCHA_DESC">
+			<option value="no">S5_CONTACTPOP_GRECAPTCHA_1</option>
+			<option value="yes">S5_CONTACTPOP_GRECAPTCHA_2</option>
+		</field>	
+		
+		<field name="cp_maincolor" type="text" default="" label="S5_CONTACTPOP_MAINCOLOR_LABEL" description="S5_CONTACTPOP_MAINCOLOR_DESC" />
+		<field name="cp_hovercolor" type="text" default="" label="S5_CONTACTPOP_HOVERCOLOR_LABEL" description="S5_CONTACTPOP_HOVERCOLOR_DESC" />
+		<field name="cp_adminemail" type="text" default="" label="S5_CONTACTPOP_SENDEMAILS_LABEL" description="S5_CONTACTPOP_SENDEMAILS_DESC" />
+
+		
+	</fieldset>
+		</fields>
+	</config>
+</extension>
